@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Continental Network · YouTube MCN for creators</title>
+<meta name="description" content="Continental Network is a YouTube multi-channel network (MCN): monetization, Content ID protection, music distribution, free consultations and a real team for creators in English and Bosnian.">
+<link rel="canonical" href="https://continentalnetwork.eu/">
+<meta name="theme-color" content="#0B0B0D">
+<meta property="og:title" content="Continental Network · YouTube MCN">
+<meta property="og:description" content="Grow your channel. Keep your rights. Content ID, monetization, education and a team that answers.">
+<meta property="og:image" content="https://continentalnetwork.eu/og.png">
+<meta property="og:url" content="https://continentalnetwork.eu/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap">
+<style>
+/* Layout: brand-aligned to the CN monogram — Archivo expanded caps for headings, warm white on deep black, the open C-ring as a recurring motif */
+:root{
+  color-scheme:dark;
+  --ink:#0B0B0D;
+  --panel:#141316;
+  --panel-2:#1C1B1E;
+  --line:#2A282C;
+  --fg:#F2EEE8;
+  --muted:#A9A49E;
+  --ember:#FF5A1F;
+  --gold:#FFB020;
+  --on-ember:#1A0A03;
+  --media:#8CD24A;--academy:#7C4DDB;--sport:#17B6A4;
+  --display:"Archivo",ui-sans-serif,system-ui,sans-serif;
+  --body:"Archivo",ui-sans-serif,system-ui,sans-serif;
+  --mono:"Archivo",ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--ink);color:var(--fg);font:400 16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-stretch:125%;text-wrap:balance;margin:0;letter-spacing:.01em}
+h1,h2{text-transform:uppercase}
+h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;line-height:1.12}
+h3{font-size:18px;font-weight:700;line-height:1.3;letter-spacing:.01em}
+p{margin:0}
+.eyebrow{font:500 12px/1 var(--body);font-stretch:125%;text-transform:uppercase;letter-spacing:.5em;color:var(--ember);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:14px;height:14px;flex:none;border:3px solid var(--fg);border-radius:50%;border-right-color:transparent;transform:rotate(-45deg)}
+.lead{color:var(--muted);font-size:18px;max-width:58ch}
+section{padding-block:clamp(64px,9vw,112px)}
+.sec-head{display:grid;gap:14px;margin-bottom:44px;max-width:720px}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:6px}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(11,11,13,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:20px;min-height:68px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:"Archivo",var(--body);font-stretch:125%}
+.brand b{display:block;font-weight:700;font-size:16px;line-height:1;letter-spacing:.02em}
+.brand small{display:block;font-weight:500;font-size:9px;line-height:1;letter-spacing:.62em;color:var(--ember);margin-top:5px}
+.mark{width:38px;height:38px;flex:none}
+.links{display:flex;gap:26px;margin-left:auto;font-size:13px;font-stretch:125%;text-transform:uppercase;letter-spacing:.08em}
+.links a{text-decoration:none;color:var(--muted)}
+.links a:hover{color:var(--fg)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;flex:none}
+.lang button{all:unset;cursor:pointer;font:500 12px/1 var(--mono);padding:7px 10px;border-radius:999px;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--fg);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 13px/1 var(--body);font-stretch:125%;text-transform:uppercase;letter-spacing:.08em;padding:16px 22px;border-radius:8px;border:1px solid transparent;cursor:pointer}
+.btn-ember{background:var(--ember);color:var(--on-ember)}
+.btn-ember:hover{background:#FF7240}
+.btn-ghost{border-color:var(--line);color:var(--fg);background:transparent}
+.btn-ghost:hover{border-color:var(--muted)}
+.nav .btn{padding:12px 16px;font-size:12px}
+@media (max-width:860px){.links{display:none}.lang{margin-left:auto}}
+@media (max-width:420px){.nav .btn{display:none}}
+
+/* hero: drifting analytics wall (views, watch time, revenue) behind centered headline */
+.hero{padding-block:clamp(88px,12vw,150px);position:relative;overflow:hidden;text-align:center;isolation:isolate}
+.wall{position:absolute;inset:-60px 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;padding-inline:18px;opacity:.55;z-index:-2}
+.wall .col{display:grid;gap:18px;align-content:start;animation:drift 46s linear infinite}
+.wall .col:nth-child(even){animation-duration:58s;animation-direction:reverse}
+@keyframes drift{to{transform:translateY(-50%)}}
+.ac{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 14px 12px;text-align:left;display:grid;gap:10px;min-width:0}
+.ac .hd{display:flex;align-items:center;justify-content:space-between;gap:8px;font:600 11px/1 var(--body);font-stretch:125%;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ac .hd i{display:inline-flex;align-items:center;gap:7px;font-style:normal}
+.ac .hd svg{width:14px;height:14px;color:var(--ember)}
+.ac .up{color:var(--ember);font-size:13px}
+.ac .ch{width:100%;height:64px;display:block;overflow:visible}
+.ac .ln{fill:none;stroke:var(--ember);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:420;stroke-dashoffset:420;animation:draw 7s ease-in-out infinite}
+.ac .ar{fill:rgba(255,90,31,.12)}
+.ac .gl{stroke:var(--line);stroke-width:1}
+@keyframes draw{0%{stroke-dashoffset:420}55%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:-420}}
+.ac .bars{display:flex;align-items:flex-end;gap:5px;height:64px}
+.ac .bars b{flex:1;border-radius:3px 3px 0 0;background:var(--ember);opacity:.85;transform-origin:bottom;animation:grow 4.8s ease-in-out infinite}
+.ac .bars b:nth-child(odd){background:var(--fg);opacity:.35}
+@keyframes grow{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.ac .rt{display:flex;align-items:flex-end;gap:2px;height:40px}
+.ac .rt b{flex:1;background:var(--ember);opacity:.7;transform-origin:bottom;animation:flick 1.6s steps(4) infinite}
+@keyframes flick{0%,100%{transform:scaleY(.3)}25%{transform:scaleY(.9)}50%{transform:scaleY(.5)}75%{transform:scaleY(1)}}
+.ac .dn{width:72px;height:72px;justify-self:center;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ac .th{aspect-ratio:16/9;max-width:100%;border-radius:10px;background:linear-gradient(135deg,#2A1610,#141316 70%);position:relative;display:grid;place-items:center}
+.ac .th span{width:34px;height:34px;border-radius:50%;background:var(--ember);display:grid;place-items:center}
+.ac .pg{height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.ac .pg b{display:block;height:100%;width:100%;background:var(--ember);transform-origin:left;animation:prog 9s linear infinite}
+@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.ac .rows{display:grid;gap:7px}
+.ac .rows div{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;font-size:11px;color:var(--muted)}
+.ac .rows u{display:block;height:6px;border-radius:6px;background:var(--fg);opacity:.25;text-decoration:none}
+.ac .rows u.e{background:var(--ember);opacity:.8}
+.veil{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,rgba(11,11,13,.95) 0%,rgba(11,11,13,.7) 55%,rgba(11,11,13,.9) 100%)}
+@media (prefers-reduced-motion:reduce){.wall .col,.ac *{animation:none!important}.ac .ln{stroke-dashoffset:0}}
+@media (max-width:900px){.wall{grid-template-columns:repeat(4,minmax(0,1fr))}.wall .col:nth-child(n+5){display:none}}
+@media (max-width:520px){.wall{grid-template-columns:repeat(3,minmax(0,1fr))}.wall .col:nth-child(n+4){display:none}}
+.hero-inner{display:grid;justify-items:center;max-width:860px;margin:0 auto}
+.hero h1{font-size:clamp(30px,5.4vw,64px);font-weight:800;line-height:1.04;margin:22px 0 22px}
+.hero h1 em{font-style:normal;color:var(--ember)}
+.hero .lead{margin-inline:auto}
+.hero-note{margin-top:28px;font-size:12px;color:var(--muted)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;justify-content:center}
+
+/* studio card */
+.studio{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;display:grid;gap:14px;min-width:0}
+.studio-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tag{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.live{display:inline-flex;align-items:center;gap:7px;font:500 12px/1 var(--mono);color:var(--fg)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--ember);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.screen{aspect-ratio:16/9;max-width:100%;border-radius:12px;background:linear-gradient(135deg,#2A1610,#141316 60%);position:relative;display:grid;place-items:center;overflow:hidden}
+.screen .play{width:62px;height:62px;border-radius:50%;background:var(--ember);display:grid;place-items:center}
+.screen .wm{position:absolute;right:12px;top:12px;width:26px;height:26px;opacity:.9}
+.screen .bar{position:absolute;left:14px;right:14px;bottom:12px;height:4px;border-radius:4px;background:rgba(255,255,255,.15)}
+.screen .bar i{display:block;width:38%;height:100%;border-radius:4px;background:var(--ember)}
+.rows{display:grid;gap:8px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;background:var(--panel-2);font-size:14px}
+.row span:last-child{font:500 13px/1 var(--mono);font-variant-numeric:tabular-nums}
+.ok{color:var(--sport)}.warn{color:var(--gold)}
+.note{font:400 12px/1.4 var(--mono);color:var(--muted)}
+
+/* video */
+.vid{padding-block:clamp(56px,8vw,96px)}
+.vid-grid{display:grid;grid-template-columns:1.45fr .9fr;gap:48px;align-items:center}
+@media (max-width:900px){.vid-grid{grid-template-columns:1fr}}
+.player{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9;max-width:100%;min-width:0}
+.player video{display:block;width:100%;height:100%;object-fit:cover}
+.player .playbtn{position:absolute;inset:0;display:grid;place-items:center;background:transparent;border:0;cursor:pointer}
+.player .playbtn span{width:88px;height:88px;border-radius:50%;background:var(--ember);display:grid;place-items:center;transition:transform .2s}
+.player .playbtn:hover span{transform:scale(1.08)}
+.player .len{position:absolute;left:16px;bottom:16px;font:600 12px/1 var(--body);font-stretch:125%;letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;border-radius:6px;background:rgba(11,11,13,.8);color:var(--fg)}
+.vid-points{display:grid;gap:14px;padding:0;margin:22px 0 28px}
+.vid-points li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:var(--muted)}
+.vid-points b{color:var(--fg);font-weight:600}
+.vid-points svg{flex:none;width:20px;height:20px;color:var(--ember);margin-top:3px}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.svc article{padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:12px;align-content:start;min-width:0}
+.svc .ic{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--ember)}
+.svc .ic svg{width:20px;height:20px}
+.svc p{color:var(--muted);font-size:15px}
+@media (max-width:900px){.svc{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.svc{grid-template-columns:1fr}}
+
+/* steps */
+.band{background:var(--panel);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:s}
+.steps li{list-style:none;counter-increment:s;padding:22px 18px;border-radius:14px;background:var(--ink);border:1px solid var(--line);display:grid;gap:10px;align-content:start;min-width:0}
+.steps li::before{content:"0" counter(s);font:800 22px/1 var(--display);font-stretch:125%;color:var(--ember)}
+.steps p{color:var(--muted);font-size:14px}
+.steps{padding:0;margin:0}
+@media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* creators */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.checks{display:grid;gap:12px;padding:0;margin:0}
+.checks li{list-style:none;display:flex;gap:12px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.checks svg{flex:none;width:20px;height:20px;color:var(--ember);margin-top:2px}
+
+/* family */
+.fam{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.fam div{border-radius:14px;padding:20px;border:1px solid var(--line);background:var(--panel);display:grid;gap:8px;min-width:0}
+.fam b{font:700 14px/1.25 var(--display);font-stretch:125%;text-transform:uppercase;letter-spacing:.02em}
+.fam span{font-size:14px;color:var(--muted)}
+.fam i{display:block;height:6px;border-radius:6px;margin-bottom:6px}
+.fam .me{border-color:var(--ember)}
+@media (max-width:860px){.fam{grid-template-columns:1fr 1fr}}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:820px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:0 20px}
+summary{cursor:pointer;list-style:none;padding:18px 0;font:600 16px/1.4 var(--body);display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:500 20px/1 var(--mono);color:var(--ember)}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);padding-bottom:18px}
+
+/* apply */
+.apply{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+@media (max-width:860px){.apply{grid-template-columns:1fr}}
+form{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+@media (max-width:560px){form{grid-template-columns:1fr}}
+label{font:500 13px/1 var(--body);color:var(--muted)}
+input,select,textarea{width:100%;font:400 15px/1.4 var(--body);color:var(--fg);background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ember)}
+textarea{min-height:96px;resize:vertical}
+.consent{display:flex!important;gap:10px;align-items:flex-start;font:400 14px/1.5 var(--body)!important;color:var(--muted)}
+.consent input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--ember);padding:0}
+.consent a{color:var(--fg)}
+.err{font-size:13px;color:#FF8A7A;min-height:0}
+.done{grid-column:1/-1;padding:14px 16px;border-radius:10px;border:1px solid var(--sport);color:var(--fg);background:rgba(23,182,164,.1)}
+.contact{display:grid;gap:14px;margin-top:26px}
+.contact div{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.contact code{font:500 14px/1 var(--mono);color:var(--fg);user-select:all}
+.copy{all:unset;cursor:pointer;font:500 12px/1 var(--mono);padding:6px 9px;border-radius:8px;border:1px solid var(--line);color:var(--muted)}
+.copy:hover{color:var(--fg)}
+
+footer{border-top:1px solid var(--line);padding-block:40px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+footer .brand{color:var(--fg)}
+footer .meta{display:grid;gap:6px;text-align:right}
+@media (max-width:640px){footer .meta{text-align:left}}
+.placeholder{font:500 12px/1.4 var(--mono);color:var(--gold)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Continental Network">
+      <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="46" fill="none" stroke="#F4F1EE" stroke-width="11" stroke-dasharray="210 79" transform="rotate(50 60 60)"/><path d="M46 80V40l32 40V40" fill="none" stroke="#FF5A1F" stroke-width="11"/><path d="M73 40h35" stroke="#FF5A1F" stroke-width="11"/></svg>
+      <span><b>CONTINENTAL</b><small>NETWORK</small></span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services" data-i="nav_services">Services</a>
+      <a href="#how" data-i="nav_how">How it works</a>
+      <a href="#creators" data-i="nav_creators">For creators</a>
+      <a href="#faq" data-i="nav_faq">FAQ</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true" data-lang="en">EN</button>
+      <button type="button" id="lang-bs" aria-pressed="false" data-lang="bs">BS</button>
+    </div>
+    <a class="btn btn-ember" href="#apply" data-i="nav_apply">Apply</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wall" id="wall" aria-hidden="true"></div>
+    <div class="veil" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow" data-i="hero_eyebrow">YouTube multi-channel network</p>
+      <h1 data-i="hero_title" data-html>Grow your channel. <em>Keep your rights.</em></h1>
+      <p class="lead" data-i="hero_lead">Continental Network helps YouTube creators earn more, protect their content and grow faster, with a team that speaks your language and answers your messages.</p>
+      <div class="cta-row">
+        <a class="btn btn-ember" href="#apply" data-i="hero_cta">Apply to join</a>
+        <a class="btn btn-ghost" href="#video" data-i="hero_cta2">Watch the video</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="video" class="vid band">
+    <div class="wrap vid-grid">
+      <div class="player">
+        <video id="promo" src="promo.mp4" poster="promo-poster.jpg" preload="none" playsinline></video>
+        <button class="playbtn" id="playbtn" type="button" aria-label="Play video"><span><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#1A0A03"/></svg></span></button>
+        <span class="len" id="vlen">1:41</span>
+      </div>
+      <div>
+        <p class="eyebrow" data-i="v_eyebrow">Watch</p>
+        <h2 style="margin-top:14px" data-i="v_title">Meet Continental Network</h2>
+        <p class="lead" style="margin-top:14px" data-i="v_lead">In under two minutes: how the network works and what you get beyond AdSense.</p>
+        <ul class="vid-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span data-i="vp1" data-html><b>Content ID</b> protection for your videos</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span data-i="vp2" data-html><b>Free consultations</b> and creator education</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span data-i="vp3" data-html><b>A real team</b> that knows your channel</span></li>
+        </ul>
+        <a class="btn btn-ember" href="#apply" data-i="v_cta">Apply to join</a>
+        <p class="note" style="margin-top:14px" data-i="v_note">Video in English.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i="svc_eyebrow">Services</p>
+        <h2 data-i="svc_title">Everything your channel needs behind the scenes</h2>
+      </div>
+      <div class="svc">
+        <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M17 7.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2.2 2.8 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg></span><h3 data-i="s1t">Monetization</h3><p data-i="s1d">We manage ad revenue on your videos and help you add income streams beyond ads.</p></article>
+        <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><h3 data-i="s2t">Content ID & rights</h3><p data-i="s2d">We find re-uploads of your videos, claim them on your behalf and handle disputes.</p></article>
+        <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19l5-6 4 3 7-9"/><path d="M15 7h5v5"/></svg></span><h3 data-i="s3t">Growth strategy</h3><p data-i="s3d">Titles, thumbnails, upload timing and Shorts. Practical advice based on your own analytics.</p></article>
+        <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 4h14v16H5zM9 9h6M9 13h6M9 17h3"/></svg></span><h3 data-i="s4t">Monthly reports & payouts</h3><p data-i="s4d">A clear statement every month showing what you earned and when you get paid.</p></article>
+        <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></span><h3 data-i="s5t">Music & distribution</h3><p data-i="s5d">Support for music channels: registering tracks and collecting revenue from their use.</p></article>
+        <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1016 0 8 8 0 00-16 0z"/><path d="M12 8v4l3 2"/></svg></span><h3 data-i="s6t">Support that answers</h3><p data-i="s6d">A dedicated contact for your channel, in Bosnian, Croatian, Serbian or English.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i="how_eyebrow">How it works</p>
+        <h2 data-i="how_title">From application to partner in five steps</h2>
+      </div>
+      <ol class="steps">
+        <li><h3 data-i="st1t">Apply</h3><p data-i="st1d">Send us your channel link and a few details through the form below.</p></li>
+        <li><h3 data-i="st2t">Review</h3><p data-i="st2d">We check the channel's content, history and policy status.</p></li>
+        <li><h3 data-i="st3t">Agreement</h3><p data-i="st3d">You get a clear contract with the revenue split and terms in writing.</p></li>
+        <li><h3 data-i="st4t">Connect</h3><p data-i="st4d">You accept the invitation in YouTube Studio to link your channel to our network.</p></li>
+        <li><h3 data-i="st5t">Grow</h3><p data-i="st5d">We start protecting, reporting and working on growth with you.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="creators">
+    <div class="wrap split">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow" data-i="cr_eyebrow">For creators</p>
+        <h2 data-i="cr_title">Who we work with</h2>
+        <p class="lead" data-i="cr_lead">We look for channels with original content and a clear direction. Music, gaming, entertainment, vlogs, education and sport are all welcome.</p>
+      </div>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span data-i="c1">You own the rights to the content you upload</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span data-i="c2">The channel follows YouTube's community guidelines and has no active strikes</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span data-i="c3">You upload regularly and want to grow</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span data-i="c4">You're 18 or older, or have a parent or guardian sign the agreement</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i="fam_eyebrow">Part of Continental</p>
+        <h2 data-i="fam_title">One group, four specialist teams</h2>
+      </div>
+      <div class="fam">
+        <div><i style="background:var(--media)"></i><b>Continental Media</b><span data-i="f1">Marketing agency</span></div>
+        <div><i style="background:linear-gradient(90deg,#7C4DDB,#B06AF0)"></i><b>Continental Academy</b><span data-i="f2">Education</span></div>
+        <div><i style="background:var(--sport)"></i><b>Continental Sport</b><span data-i="f3">Sport</span></div>
+        <div class="me"><i style="background:var(--ember)"></i><b>Continental Network</b><span data-i="f4">YouTube network</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">FAQ</p>
+        <h2 data-i="faq_title">Common questions</h2>
+      </div>
+      <div class="faq">
+        <details><summary data-i="q1">Do I keep ownership of my channel?</summary><p data-i="a1">Yes. The channel and your content stay yours. Joining the network links the channel for monetization and rights management only.</p></details>
+        <details><summary data-i="q2">How is revenue shared?</summary><p data-i="a2">The split is set out in your agreement before you join, so you know exactly what you receive. Every month you get a statement showing the figures.</p></details>
+        <details><summary data-i="q3">Can I leave the network?</summary><p data-i="a3">Yes. The agreement states the notice period and how the channel is unlinked.</p></details>
+        <details><summary data-i="q4">How long does the review take?</summary><p data-i="a4">We reply to every application. Response times are confirmed in our first message to you.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply" style="padding-top:0">
+    <div class="wrap">
+      <div class="apply">
+        <div>
+          <p class="eyebrow" data-i="ap_eyebrow">Apply</p>
+          <h2 style="margin-top:14px" data-i="ap_title">Join Continental Network</h2>
+          <p class="lead" style="margin-top:14px" data-i="ap_lead">Tell us about your channel. We'll review it and get back to you by email.</p>
+          <div class="contact">
+            <div><code id="mail">info@continentalnetwork.eu</code><button type="button" class="copy" id="copy-mail" data-i="copy">Copy</button></div>
+          </div>
+        </div>
+        <form id="apply-form" novalidate>
+          <div class="field"><label for="f-name" data-i="l_name">Full name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-email" data-i="l_email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field full"><label for="f-url" data-i="l_url">Channel link</label><input id="f-url" name="url" placeholder="https://youtube.com/@yourchannel"></div>
+          <div class="field"><label for="f-cat" data-i="l_cat">Category</label>
+            <select id="f-cat" name="cat">
+              <option value="music" data-i="o1">Music</option><option value="gaming" data-i="o2">Gaming</option><option value="ent" data-i="o3">Entertainment</option><option value="vlog" data-i="o4">Vlog</option><option value="edu" data-i="o5">Education</option><option value="sport" data-i="o6">Sport</option><option value="other" data-i="o7">Other</option>
+            </select></div>
+          <div class="field"><label for="f-country" data-i="l_country">Country</label><input id="f-country" name="country" autocomplete="country-name"></div>
+          <div class="field full"><label for="f-msg" data-i="l_msg">Anything we should know?</label><textarea id="f-msg" name="msg"></textarea></div>
+          <input type="text" id="f-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <label class="field full consent" for="f-ok"><input type="checkbox" id="f-ok" name="consent"><span data-i="l_ok" data-html>I agree that Continental Network may process my details to review my application, as described in the <a href="privacy.html">privacy policy</a>.</span></label>
+          <p class="err field full" id="f-err" role="alert"></p>
+          <div class="field full"><button class="btn btn-ember" type="submit" data-i="submit">Send application</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Continental Network">
+      <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="46" fill="none" stroke="#F2EEE8" stroke-width="11" stroke-dasharray="210 79" transform="rotate(50 60 60)"/><path d="M46 80V40l32 40V40" fill="none" stroke="#FF5A1F" stroke-width="11"/><path d="M73 40h35" stroke="#FF5A1F" stroke-width="11"/></svg>
+      <span><b>CONTINENTAL</b><small>NETWORK</small></span>
+    </a>
+    <div class="meta">
+      <span>© 2026 Continental Network · <a href="privacy.html" data-i="f_priv" style="color:inherit">Privacy policy</a></span>
+      <span data-i="foot">Continental Network is an independent company and is not affiliated with YouTube or Google.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const BS={
+nav_services:"Usluge",nav_how:"Kako radi",nav_creators:"Za kreatore",nav_faq:"Pitanja",nav_apply:"Prijava",
+hero_eyebrow:"YouTube mreža kanala",
+hero_title:"Rasti kanal. <em>Zadrži svoja prava.</em>",
+hero_lead:"Continental Network pomaže YouTube kreatorima da zarade više, zaštite svoj sadržaj i brže rastu, uz tim koji govori tvoj jezik i odgovara na tvoje poruke.",
+hero_cta:"Prijavi se",hero_cta2:"Pogledaj video",
+v_eyebrow:"Pogledaj",v_title:"Upoznaj Continental Network",v_lead:"Za manje od dvije minute: kako mreža radi i šta dobijaš mimo AdSensea.",
+vp1:"<b>Content ID</b> zaštita tvojih videa",vp2:"<b>Besplatne konsultacije</b> i edukacija za kreatore",vp3:"<b>Pravi tim</b> koji poznaje tvoj kanal",v_cta:"Prijavi se",v_note:"Video je na engleskom.",
+card_title:"Pregled kanala",card_example:"Primjer",row1:"Monetizacija",row1v:"Aktivna",row2:"Content ID zahtjevi",row2v:"3 za pregled",row3:"Mjesečni izvještaj",row3v:"Spreman",
+card_note:"Primjer prikaza. Ovo partner vidi u mjesečnom pregledu.",
+svc_eyebrow:"Usluge",svc_title:"Sve što tvom kanalu treba iza kamere",
+s1t:"Monetizacija",s1d:"Upravljamo prihodom od reklama na tvojim videima i pomažemo ti da dodaš izvore zarade mimo reklama.",
+s2t:"Content ID i prava",s2d:"Pronalazimo tuđe re-uploade tvojih videa, prisvajamo ih u tvoje ime i rješavamo sporove.",
+s3t:"Strategija rasta",s3d:"Naslovi, thumbnailovi, vrijeme objave i Shorts. Praktični savjeti na osnovu tvoje analitike.",
+s4t:"Mjesečni izvještaji i isplate",s4d:"Jasan izvještaj svakog mjeseca: koliko si zaradio i kada stiže isplata.",
+s5t:"Muzika i distribucija",s5d:"Podrška muzičkim kanalima: registracija pjesama i naplata prihoda od njihovog korištenja.",
+s6t:"Podrška koja odgovara",s6d:"Kontakt osoba za tvoj kanal, na bosanskom, hrvatskom, srpskom ili engleskom.",
+how_eyebrow:"Kako radi",how_title:"Od prijave do partnerstva u pet koraka",
+st1t:"Prijava",st1d:"Pošalji nam link kanala i nekoliko podataka kroz formu ispod.",
+st2t:"Pregled",st2d:"Provjeravamo sadržaj kanala, historiju i status pravila.",
+st3t:"Ugovor",st3d:"Dobijaš jasan ugovor s podjelom prihoda i uslovima napismeno.",
+st4t:"Povezivanje",st4d:"Prihvataš pozivnicu u YouTube Studiju i kanal se povezuje s našom mrežom.",
+st5t:"Rast",st5d:"Počinjemo sa zaštitom, izvještajima i radom na rastu, zajedno s tobom.",
+cr_eyebrow:"Za kreatore",cr_title:"S kim radimo",
+cr_lead:"Tražimo kanale s originalnim sadržajem i jasnim pravcem. Muzika, gaming, zabava, vlogovi, edukacija i sport su dobrodošli.",
+c1:"Imaš prava na sadržaj koji objavljuješ",c2:"Kanal poštuje YouTube smjernice zajednice i nema aktivnih upozorenja (strikes)",c3:"Redovno objavljuješ i želiš rasti",c4:"Imaš 18 ili više godina, ili ugovor potpisuje roditelj ili staratelj",
+fam_eyebrow:"Dio Continental grupe",fam_title:"Jedna grupa, četiri specijalizovana tima",f1:"Marketinška agencija",f2:"Edukacija",f3:"Sport",f4:"YouTube mreža",
+faq_title:"Česta pitanja",
+q1:"Da li kanal ostaje moj?",a1:"Da. Kanal i sadržaj ostaju tvoji. Ulaskom u mrežu kanal se povezuje samo radi monetizacije i upravljanja pravima.",
+q2:"Kako se dijeli prihod?",a2:"Podjela je navedena u ugovoru prije ulaska, pa tačno znaš šta dobijaš. Svakog mjeseca dobijaš izvještaj s brojkama.",
+q3:"Mogu li izaći iz mreže?",a3:"Da. U ugovoru piše otkazni rok i kako se kanal odvezuje.",
+q4:"Koliko traje pregled prijave?",a4:"Odgovaramo na svaku prijavu. Rok odgovora potvrđujemo u prvoj poruci.",
+ap_eyebrow:"Prijava",ap_title:"Pridruži se Continental Networku",ap_lead:"Reci nam nešto o svom kanalu. Pregledat ćemo ga i javiti ti se emailom.",
+copy:"Kopiraj",l_ok:"Saglasan/na sam da Continental Network obrađuje moje podatke radi pregleda prijave, kako je opisano u <a href=\"privacy.html\">politici privatnosti</a>.",f_priv:"Politika privatnosti",
+l_name:"Ime i prezime",l_email:"Email",l_url:"Link kanala",l_cat:"Kategorija",l_country:"Država",l_msg:"Nešto što trebamo znati?",
+o1:"Muzika",o2:"Gaming",o3:"Zabava",o4:"Vlog",o5:"Edukacija",o6:"Sport",o7:"Ostalo",
+submit:"Pošalji prijavu",
+foot:"Continental Network je nezavisna kompanija i nije povezan s YouTubeom ni Googleom."
+};
+const MSG={
+en:{req:"Fill in your name, a valid email and your channel link.",consent:"Tick the box to agree to the privacy policy.",sending:"Sending your application…",done:"Thanks, {name}! Your application has been sent. We'll reply by email.",fail:"The application couldn't be sent. Please try again, or email us at info@continentalnetwork.eu.",demo:"Preview: on continentalnetwork.eu this form sends the application to our team.",copied:"Copied"},
+bs:{req:"Upiši ime, ispravan email i link kanala.",consent:"Označi kvadratić da prihvatiš politiku privatnosti.",sending:"Šaljem prijavu…",done:"Hvala, {name}! Prijava je poslana. Javit ćemo ti se emailom.",fail:"Prijava nije poslana. Pokušaj ponovo ili nam piši na info@continentalnetwork.eu.",demo:"Pregled: na continentalnetwork.eu ova forma šalje prijavu našem timu.",copied:"Kopirano"}
+};
+const EN={};
+document.querySelectorAll('[data-i]').forEach(el=>{EN[el.dataset.i]=el.hasAttribute('data-html')?el.innerHTML:el.textContent});
+let lang='en';
+function setLang(l){
+  lang=l;document.documentElement.lang=l;
+  const d=l==='bs'?BS:EN;
+  document.querySelectorAll('[data-i]').forEach(el=>{const v=d[el.dataset.i];if(v==null)return;el.hasAttribute('data-html')?el.innerHTML=v:el.textContent=v});
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
+  try{localStorage.setItem('cn-lang',l)}catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+try{const s=localStorage.getItem('cn-lang');if(s==='bs')setLang('bs')}catch(e){}
+
+const form=document.getElementById('apply-form'),err=document.getElementById('f-err');
+form.addEventListener('input',()=>{err.textContent=''});
+// applications -> FormSubmit (same setup as Continental Cabin)
+const FORM_EMAIL='hujicenis@gmail.com';
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const n=v('f-name'),m=v('f-email'),u=v('f-url');
+  let d=form.querySelector('.done');
+  const say=(t,ok)=>{if(!d){d=document.createElement('p');d.className='done';d.setAttribute('role','status');form.appendChild(d)}d.textContent=t;d.style.borderColor=ok?'':'#FF8A7A'};
+  if(!n||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)||!u){err.textContent=MSG[lang].req;return}
+  if(!document.getElementById('f-ok').checked){err.textContent=MSG[lang].consent;return}
+  err.textContent='';
+  if(v('f-hp'))return;
+  if(!/continentalnetwork\./i.test(location.hostname)){say(MSG[lang].demo,true);return}
+  const btn=form.querySelector('button[type=submit]');btn.disabled=true;say(MSG[lang].sending,true);
+  const cat=document.getElementById('f-cat');
+  fetch('https://formsubmit.co/ajax/'+FORM_EMAIL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:'Nova prijava kreatora: '+n,_template:'table',_replyto:m,'Ime i prezime':n,'Email':m,'Link kanala':u,'Kategorija':cat.options[cat.selectedIndex].text,'Država':v('f-country')||'-','Poruka':v('f-msg')||'-','Jezik sajta':lang})})
+  .then(r=>r.json().then(j=>{if(!r.ok||String(j.success)==='false')throw 0}))
+  .then(()=>{say(MSG[lang].done.replace('{name}',n),true);form.reset()})
+  .catch(()=>say(MSG[lang].fail,false))
+  .finally(()=>{btn.disabled=false});
+});
+document.getElementById('copy-mail').addEventListener('click',function(){
+  const t=document.getElementById('mail').textContent,b=this;
+  const ok=()=>{const o=b.textContent;b.textContent=MSG[lang].copied;setTimeout(()=>b.textContent=lang==='bs'?BS.copy:EN.copy,1400)};
+  try{navigator.clipboard.writeText(t).then(ok,()=>{getSelection().selectAllChildren(document.getElementById('mail'))})}catch(e){getSelection().selectAllChildren(document.getElementById('mail'))}
+});
+
+// analytics wall: decorative YouTube-style analytics cards (no real figures)
+(function(){
+  const I={eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+    clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    user:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/></svg>',
+    cash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v18M17 7.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2.2 2.8 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg>',
+    pulse:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>',
+    pie:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3a9 9 0 109 9h-9z"/></svg>'};
+  let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+  const spark=(area)=>{let y=52,d='M0 '+y,pts=[[0,y]];for(let x=20;x<=200;x+=20){y=Math.max(6,Math.min(58,y-(rnd()*14-3)));pts.push([x,y]);d+=` L${x} ${y.toFixed(1)}`}
+    const a=area?`<path class="ar" d="${d} L200 64 L0 64Z"/>`:'';
+    return `<svg class="ch" viewBox="0 0 200 64" preserveAspectRatio="none"><line class="gl" x1="0" x2="200" y1="21" y2="21"/><line class="gl" x1="0" x2="200" y1="42" y2="42"/>${a}<path class="ln" d="${d}" style="animation-delay:-${(rnd()*6).toFixed(1)}s"/></svg>`};
+  const hd=(ic,t)=>`<div class="hd"><i>${I[ic]}${t}</i><span class="up">&#8599;</span></div>`;
+  const bars=n=>`<div class="bars">${Array.from({length:n},(_,i)=>`<b style="height:${30+i*(60/n)+rnd()*20}%;animation-delay:-${(rnd()*4).toFixed(1)}s"></b>`).join('')}</div>`;
+  const T={
+    views:()=>`<div class="ac">${hd('eye','Views')}${spark(true)}</div>`,
+    watch:()=>`<div class="ac">${hd('clock','Watch time')}${bars(9)}</div>`,
+    subs:()=>`<div class="ac">${hd('user','Subscribers')}${spark(false)}</div>`,
+    rev:()=>`<div class="ac">${hd('cash','Revenue')}${spark(true)}</div>`,
+    live:()=>`<div class="ac">${hd('pulse','Realtime')}<div class="rt">${Array.from({length:24},()=>`<b style="height:${20+rnd()*80}%;animation-delay:-${(rnd()*1.6).toFixed(2)}s"></b>`).join('')}</div></div>`,
+    src:()=>`<div class="ac">${hd('pie','Traffic sources')}<svg class="dn" viewBox="0 0 42 42"><circle cx="21" cy="21" r="15.9" fill="none" stroke="#2A282C" stroke-width="6"/><circle cx="21" cy="21" r="15.9" fill="none" stroke="#FF5A1F" stroke-width="6" stroke-dasharray="46 54"/><circle cx="21" cy="21" r="15.9" fill="none" stroke="#F2EEE8" stroke-opacity=".45" stroke-width="6" stroke-dasharray="22 78" stroke-dashoffset="-48"/></svg><div class="rows"><div>Browse<u class="e"></u></div><div>Search<u style="width:70%"></u></div></div></div>`,
+    vid:()=>`<div class="ac"><div class="th"><span><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#1A0A03"/></svg></span></div><div class="pg"><b style="animation-delay:-${(rnd()*9).toFixed(1)}s"></b></div></div>`
+  };
+  const order=['views','vid','watch','rev','src','subs','live','views','rev','vid','watch','subs'];
+  const wall=document.getElementById('wall');let h='';
+  for(let c=0;c<6;c++){let col='';for(let k=0;k<2;k++)for(let i=0;i<6;i++){col+=T[order[(c*5+i*3+k)%order.length]]()}h+=`<div class="col">${col}</div>`}
+  wall.innerHTML=h;
+})();
+
+// promo video: custom play button, native controls after start
+(function(){const v=document.getElementById('promo'),b=document.getElementById('playbtn'),l=document.getElementById('vlen');if(!v)return;
+b.addEventListener('click',()=>{v.controls=true;b.hidden=true;l.hidden=true;const p=v.play();if(p&&p.catch)p.catch(()=>{b.hidden=false})});
+v.addEventListener('ended',()=>{b.hidden=false})})();
+</script>
+</body>
+</html>
