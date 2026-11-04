@@ -484,12 +484,13 @@ form.addEventListener('submit',e=>{
   if(!/continentalnetwork\./i.test(location.hostname)){say(MSG[lang].demo,true);return}
   const btn=form.querySelector('button[type=submit]');btn.disabled=true;say(MSG[lang].sending,true);
   const cat=document.getElementById('f-cat');
-  fetch('https://formsubmit.co/ajax/'+FORM_EMAIL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+  const ac=new AbortController();const to=setTimeout(()=>ac.abort(),15000);
+  fetch('https://formsubmit.co/ajax/'+FORM_EMAIL,{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},
     body:JSON.stringify({_subject:'Nova prijava kreatora: '+n,_template:'table',_replyto:m,'Ime i prezime':n,'Email':m,'Link kanala':u,'Kategorija':cat.options[cat.selectedIndex].text,'Država':v('f-country')||'-','Poruka':v('f-msg')||'-','Jezik sajta':lang})})
   .then(r=>r.json().then(j=>{if(!r.ok||String(j.success)==='false')throw 0}))
   .then(()=>{say(MSG[lang].done.replace('{name}',n),true);form.reset()})
   .catch(()=>say(MSG[lang].fail,false))
-  .finally(()=>{btn.disabled=false});
+  .finally(()=>{clearTimeout(to);btn.disabled=false});
 });
 document.getElementById('copy-mail').addEventListener('click',function(){
   const t=document.getElementById('mail').textContent,b=this;
