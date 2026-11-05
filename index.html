@@ -469,7 +469,8 @@ try{const s=localStorage.getItem('cn-lang');if(s==='bs')setLang('bs')}catch(e){}
 
 const form=document.getElementById('apply-form'),err=document.getElementById('f-err');
 form.addEventListener('input',()=>{err.textContent=''});
-// applications -> FormSubmit (same setup as Continental Cabin)
+// applications -> Web3Forms (delivers to the inbox tied to the access key); FormSubmit only as fallback
+const WEB3FORMS_KEY='';
 const FORM_EMAIL='hujicenis@gmail.com';
 form.addEventListener('submit',e=>{
   e.preventDefault();
@@ -484,9 +485,14 @@ form.addEventListener('submit',e=>{
   if(!/continentalnetwork\./i.test(location.hostname)){say(MSG[lang].demo,true);return}
   const btn=form.querySelector('button[type=submit]');btn.disabled=true;say(MSG[lang].sending,true);
   const cat=document.getElementById('f-cat');
+  const data={'Ime i prezime':n,'Email':m,'Link kanala':u,'Kategorija':cat.options[cat.selectedIndex].text,'Država':v('f-country')||'-','Poruka':v('f-msg')||'-','Jezik sajta':lang};
   const ac=new AbortController();const to=setTimeout(()=>ac.abort(),15000);
-  fetch('https://formsubmit.co/ajax/'+FORM_EMAIL,{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({_subject:'Nova prijava kreatora: '+n,_template:'table',_replyto:m,'Ime i prezime':n,'Email':m,'Link kanala':u,'Kategorija':cat.options[cat.selectedIndex].text,'Država':v('f-country')||'-','Poruka':v('f-msg')||'-','Jezik sajta':lang})})
+  const req=WEB3FORMS_KEY
+    ? fetch('https://api.web3forms.com/submit',{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(Object.assign({access_key:WEB3FORMS_KEY,subject:'Nova prijava kreatora: '+n,from_name:'Continental Network sajt',replyto:m},data))})
+    : fetch('https://formsubmit.co/ajax/'+FORM_EMAIL,{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(Object.assign({_subject:'Nova prijava kreatora: '+n,_template:'table',_replyto:m},data))});
+  req
   .then(r=>r.json().then(j=>{if(!r.ok||String(j.success)==='false')throw 0}))
   .then(()=>{say(MSG[lang].done.replace('{name}',n),true);form.reset()})
   .catch(()=>say(MSG[lang].fail,false))
